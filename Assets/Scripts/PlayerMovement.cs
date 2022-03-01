@@ -21,6 +21,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+	// id credit whoever made this origonally but the code was so god awful  that my changes hardly made it recognisable
 	Rigidbody2D body;
 
 	Vector3 inputVec;
