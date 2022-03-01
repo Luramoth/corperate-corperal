@@ -36,6 +36,6 @@ public class Staple : MonoBehaviour
 	// Runs code once object is off screen
 	void OnBecameInvisible()
 	{
-		DestroyObject(gameObject);
+		Object.Destroy(gameObject);
 	}
 }
