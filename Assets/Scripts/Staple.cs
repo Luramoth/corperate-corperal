@@ -26,16 +26,16 @@ public class Staple : MonoBehaviour
 
 	public GameObject stapler;
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		transform.position = stapler.transform.position;
-		transform.rotation = stapler.transform.rotation;
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
+		// moves the staple at a constant speed
 		transform.Translate(Vector3.up * Time.deltaTime * stapleSpeed);
+	}
+
+	// Runs code once object is off screen
+	void OnBecameInvisible()
+	{
+		DestroyObject(gameObject);
 	}
 }

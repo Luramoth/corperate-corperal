@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /*
@@ -22,25 +20,27 @@ using UnityEngine;
 public class StaplerWeapon : MonoBehaviour
 {
 
+
+	public GameObject staple;
+
+	// make the staple gun face the cursor
 	void faceMouse()
 	{
+		// grab the current mouse position reletive to the top left of the screen
 		Vector3 mousePos = Input.mousePosition;
 		Vector2 direction;
 
+		// convert the mouse position to world space
 		mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
+		// do some math to turn the mouse position into a rotation of the staple gun
 		direction = new Vector2(
 				mousePos.x - transform.position.x,
 				mousePos.y - transform.position.y
 		);
 
+		// rotate the staple gun
 		transform.up = direction;
-	}
-
-	// Start is called before the first frame update
-	void Start()
-	{
-
 	}
 
 	// Update is called once per frame
@@ -50,7 +50,8 @@ public class StaplerWeapon : MonoBehaviour
 
 		if (Input.GetButtonDown("Fire1"))
 		{
-			print("test");
+			// spawn a staple prefab
+			Instantiate(staple, transform.position, transform.rotation);
 		}
 	}
 }

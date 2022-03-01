@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443830f1ee5bb6e9aa039f29535d9c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stapleSpeed: 0.1
+  stapleSpeed: 1
   stapler: {fileID: 0}
