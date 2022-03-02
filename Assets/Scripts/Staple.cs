@@ -21,7 +21,7 @@ using UnityEngine;
 
 public class Staple : MonoBehaviour
 {
-	int maxVelocity = 20;
+	int maxVelocity = 10;
 
 	public GameObject stapler;
 	Rigidbody2D body;
