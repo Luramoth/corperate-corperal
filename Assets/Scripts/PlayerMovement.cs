@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
 	Vector3 inputVec;
 
-	private int runSpeed = 1;
+	int runSpeed = 10;
+	float maxVelocity = 1.5f;
 
 	// starts before the first frame
 	void Start ()
@@ -53,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
 	private void FixedUpdate()
 	{
 		//this does not work under Update() and i should have figured that out considering this is a physics based function, but regardless, this gets the player moving
-		body.velocity = inputVec * runSpeed;
+		body.AddForce(inputVec * runSpeed);
+
+		body.velocity = Vector2.ClampMagnitude(body.velocity, maxVelocity);
 	}
 }

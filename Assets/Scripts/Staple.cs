@@ -22,7 +22,7 @@ using UnityEngine;
 public class Staple : MonoBehaviour
 {
 
-	private int stapleSpeed = 1;
+	private int stapleSpeed = 2;
 
 	public GameObject stapler;
 
