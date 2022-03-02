@@ -21,16 +21,22 @@ using UnityEngine;
 
 public class Staple : MonoBehaviour
 {
-
-	private int stapleSpeed = 2;
+	int maxVelocity = 20;
 
 	public GameObject stapler;
+	Rigidbody2D body;
+
+	void Start()
+	{
+		body = GetComponent<Rigidbody2D>();
+	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
-		// moves the staple at a constant speed
-		transform.Translate(Vector3.up * Time.deltaTime * stapleSpeed);
+		body.AddForce(transform.up,ForceMode2D.Force);
+
+		body.velocity = Vector2.ClampMagnitude(body.velocity, maxVelocity);
 	}
 
 	// Runs code once object is off screen
