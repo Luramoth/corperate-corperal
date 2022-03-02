@@ -23,6 +23,8 @@ public class StaplerWeapon : MonoBehaviour
 
 	public GameObject staple;
 
+	SpriteRenderer SRender;
+
 	// make the staple gun face the cursor
 	void faceMouse()
 	{
@@ -43,10 +45,24 @@ public class StaplerWeapon : MonoBehaviour
 		transform.up = direction;
 	}
 
+	void Start()
+	{
+		SRender =  GetComponent<SpriteRenderer>();
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
 		faceMouse();
+
+		if (transform.rotation.z < 0)
+		{
+			SRender.flipX = true;
+		}
+		else
+		{
+			SRender.flipX = false;
+		}
 
 		if (Input.GetButtonDown("Fire1"))
 		{
