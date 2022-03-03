@@ -17,6 +17,11 @@ using UnityEngine;
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
+
+/*
+TODO: Remove the prints for better performance
+*/
+
 public class StaplerWeapon : MonoBehaviour
 {
 	//Vars
@@ -29,7 +34,9 @@ public class StaplerWeapon : MonoBehaviour
 	//Objects
 	public GameObject staple;
 
-	SpriteRenderer SRender;
+	private SpriteRenderer SRender;
+
+	public GameObject UiHandler;
 
 	// reload the stapler
 	void reload()
@@ -111,6 +118,9 @@ public class StaplerWeapon : MonoBehaviour
 				Instantiate(staple, transform.position, transform.rotation);
 				staples--;
 				print("Staples: " + staples + "/" + holdingStaples);
+
+				// this tells the UI "hey the player fired the stapler, update the ammo count"
+				UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
 			}
 		}
 
@@ -118,6 +128,10 @@ public class StaplerWeapon : MonoBehaviour
 		if (Input.GetButtonDown("Reload"))
 		{
 			reload();
+
+			// tell the UI "hey idiot, the player reloaded, update the ammo count"
+			UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+
 			print("reloaded. " + staples + "/" + holdingStaples);
 		}
 	}
