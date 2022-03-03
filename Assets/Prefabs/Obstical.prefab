@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6257968008740087776}
   - component: {fileID: 6257968008740087790}
   - component: {fileID: 6257968008740087777}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Obstical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,4 +130,4 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
-  m_EdgeRadius: 0.01
+  m_EdgeRadius: 0
