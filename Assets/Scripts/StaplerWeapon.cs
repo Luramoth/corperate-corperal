@@ -19,11 +19,47 @@ using UnityEngine;
 
 public class StaplerWeapon : MonoBehaviour
 {
+	//Vars
+	public int staples = 16;
+	public int maxStaples = 16;
 
+	public int holdingStaples = 50;
+	public int maxHoldingStaples = 50;
 
+	//Objects
 	public GameObject staple;
 
 	SpriteRenderer SRender;
+
+	// reload the stapler
+	void reload()
+	{
+		int requiredSt;
+
+		// find out how many staples is needed to fully reload
+		requiredSt = maxStaples - staples;
+		print("required staples: " +  requiredSt);
+
+		// actual reload sequence
+		if (holdingStaples >= requiredSt)
+		{
+			// given you have enough staples to fill the stapler, fill it up my how much is needed
+			staples = maxStaples;
+
+			holdingStaples = holdingStaples - requiredSt;
+		}
+		else if (holdingStaples == 0)
+		{
+			// in this instance, you are out of staples and need to gather more
+			print("out of ammo");
+		}
+		else
+		{
+			// if you dont have enough staples to fill up the whole clip then fill it up with what you got
+			staples = holdingStaples;
+			holdingStaples = 0;
+		}
+	}
 
 	// make the staple gun face the cursor
 	void faceMouse()
@@ -45,6 +81,7 @@ public class StaplerWeapon : MonoBehaviour
 		transform.up = direction;
 	}
 
+	//starts before the first frame
 	void Start()
 	{
 		SRender =  GetComponent<SpriteRenderer>();
@@ -55,6 +92,7 @@ public class StaplerWeapon : MonoBehaviour
 	{
 		faceMouse();
 
+		//make it so the stapler is always right side up
 		if (transform.rotation.z < 0)
 		{
 			SRender.flipX = true;
@@ -64,10 +102,23 @@ public class StaplerWeapon : MonoBehaviour
 			SRender.flipX = false;
 		}
 
+		// fire staples
 		if (Input.GetButtonDown("Fire1"))
 		{
-			// spawn a staple prefab
-			Instantiate(staple, transform.position, transform.rotation);
+			if (staples > 0)
+			{
+				// spawn a staple prefab
+				Instantiate(staple, transform.position, transform.rotation);
+				staples--;
+				print("Staples: " + staples + "/" + holdingStaples);
+			}
+		}
+
+		// reload staples
+		if (Input.GetButtonDown("Reload"))
+		{
+			reload();
+			print("reloaded. " + staples + "/" + holdingStaples);
 		}
 	}
 }
