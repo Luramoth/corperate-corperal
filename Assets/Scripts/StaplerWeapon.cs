@@ -19,7 +19,6 @@ using UnityEngine;
 
 
 /*
-TODO: Remove the prints for better performance
 */
 
 public class StaplerWeapon : MonoBehaviour
@@ -36,6 +35,7 @@ public class StaplerWeapon : MonoBehaviour
 
 	private SpriteRenderer SRender;
 
+	//external objects
 	public GameObject UiHandler;
 
 	// reload the stapler
@@ -45,7 +45,6 @@ public class StaplerWeapon : MonoBehaviour
 
 		// find out how many staples is needed to fully reload
 		requiredSt = maxStaples - staples;
-		print("required staples: " +  requiredSt);
 
 		// actual reload sequence
 		if (holdingStaples >= requiredSt)
@@ -58,12 +57,11 @@ public class StaplerWeapon : MonoBehaviour
 		else if (holdingStaples == 0)
 		{
 			// in this instance, you are out of staples and need to gather more
-			print("out of ammo");
 		}
 		else
 		{
 			// if you dont have enough staples to fill up the whole clip then fill it up with what you got
-			staples = holdingStaples;
+			staples = staples + holdingStaples;
 			holdingStaples = 0;
 		}
 	}
@@ -117,7 +115,6 @@ public class StaplerWeapon : MonoBehaviour
 				// spawn a staple prefab
 				Instantiate(staple, transform.position, transform.rotation);
 				staples--;
-				print("Staples: " + staples + "/" + holdingStaples);
 
 				// this tells the UI "hey the player fired the stapler, update the ammo count"
 				UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
@@ -131,8 +128,6 @@ public class StaplerWeapon : MonoBehaviour
 
 			// tell the UI "hey idiot, the player reloaded, update the ammo count"
 			UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
-
-			print("reloaded. " + staples + "/" + holdingStaples);
 		}
 	}
 }
