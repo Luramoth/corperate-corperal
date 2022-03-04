@@ -19,13 +19,17 @@ using UnityEngine;
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
+/*
+TODO: add crouching function so player can hide behind cover
+*/
+
 public class PlayerMovement : MonoBehaviour
 {
 
 	// id credit whoever made this origonally but the code was so god awful  that my changes hardly made it recognisable
-	Rigidbody2D body;
+	private Rigidbody2D body;
 
-	Vector3 inputVec;
+	private Vector3 inputVec;
 
 	int runSpeed = 10;
 	float maxVelocity = 1.5f;

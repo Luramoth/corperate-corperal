@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,9 +30,10 @@ public class UserInterface : MonoBehaviour
 
 	// this is the staple count text
 	public Text stapleCountT;
+	public Image healthMeter;
 
 	// Start is called before the first frame update
-	void Start()
+	public void Start()
 	{
 		// this is the most retarded thing ive ever programmed but it works so im not gonna change it, if i could reference it with a variable i would
 		// basicly what it does is take the current staple count and how much the player currently has and updates the UI text to make sure the player knows this information

@@ -26,13 +26,13 @@ public class Staple : MonoBehaviour
 	public GameObject stapler;
 	Rigidbody2D body;
 
-	void Start()
+	public void Start()
 	{
 		body = GetComponent<Rigidbody2D>();
 	}
 
 	// Update is called once per frame
-	void FixedUpdate()
+	public void FixedUpdate()
 	{
 		body.AddForce(transform.up,ForceMode2D.Force);
 
@@ -40,7 +40,7 @@ public class Staple : MonoBehaviour
 	}
 
 	// Runs code once object is off screen
-	void OnBecameInvisible()
+	public void OnBecameInvisible()
 	{
 		Object.Destroy(gameObject);
 	}

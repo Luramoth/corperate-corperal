@@ -39,7 +39,7 @@ public class StaplerWeapon : MonoBehaviour
 	public GameObject UiHandler;
 
 	// reload the stapler
-	void reload()
+	public void reload()
 	{
 		int requiredSt;
 
@@ -67,7 +67,7 @@ public class StaplerWeapon : MonoBehaviour
 	}
 
 	// make the staple gun face the cursor
-	void faceMouse()
+	private void faceMouse()
 	{
 		// grab the current mouse position reletive to the top left of the screen
 		Vector3 mousePos = Input.mousePosition;
@@ -87,13 +87,13 @@ public class StaplerWeapon : MonoBehaviour
 	}
 
 	//starts before the first frame
-	void Start()
+	public void Start()
 	{
 		SRender =  GetComponent<SpriteRenderer>();
 	}
 
 	// Update is called once per frame
-	void Update()
+	public void Update()
 	{
 		faceMouse();
 
