@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 997
-  m_Sprite: {fileID: 21300000, guid: f98acaec9d575e58bb4773d450469559, type: 3}
+  m_Sprite: {fileID: -2311659948842064771, guid: f98acaec9d575e58bb4773d450469559, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,4 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b3faaaaaed3524289dc1dffdf3b48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staples: 16
+  maxStaples: 16
+  holdingStaples: 50
+  maxHoldingStaples: 50
   staple: {fileID: 973232888399811326, guid: 1d98fb5f818b91c1d8e29388278f30a9, type: 3}
+  UiHandler: {fileID: 0}
