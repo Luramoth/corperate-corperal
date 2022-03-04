@@ -24,6 +24,8 @@ using UnityEngine;
 public class StaplerWeapon : MonoBehaviour
 {
 	//Vars
+	public int health = 5;
+
 	public int staples = 16;
 	public int maxStaples = 16;
 

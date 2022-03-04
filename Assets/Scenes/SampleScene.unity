@@ -559,6 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stapler: {fileID: 507607282}
   stapleCountT: {fileID: 467216751}
+  healthMeter: {fileID: 0}
 --- !u!1 &866393400
 GameObject:
   m_ObjectHideFlags: 0
