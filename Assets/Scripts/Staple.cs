@@ -28,14 +28,16 @@ public class Staple : MonoBehaviour
 	public GameObject stapler;
 	Rigidbody2D body;
 
-	public void Start()
+	public GameObject hitParticle;
+
+	private void Start()
 	{
 		//this grabs the staple's rigidbody
 		body = GetComponent<Rigidbody2D>();
 	}
 
 	// Update is called once per frame
-	public void FixedUpdate()
+	private void FixedUpdate()
 	{
 		// this makes the staple constantly move forward
 		body.AddForce(transform.up,ForceMode2D.Force);
@@ -45,8 +47,21 @@ public class Staple : MonoBehaviour
 	}
 
 	// Runs code once object is off screen in order to destroy it as to not cause lag
-	public void OnBecameInvisible()
+	private void OnBecameInvisible()
 	{
 		Object.Destroy(gameObject);
+	}
+
+	//Detect collisions between the GameObjects with Colliders attached, for some reason its different from OnCollisionEnter() that is named in a way that implies its universal or normal and is also not mentioned
+	// "hey btw this is for 3d collisions, for 2D go to ..." all engines are retards
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		print("colision");
+		//Check for a match with the specific tag on any GameObject that collides with your GameObject
+		if (collision.gameObject.tag == "Object")
+		{
+			//If the GameObject has the same tag as specified, output this message in the console
+			print("object hit");
+		}
 	}
 }
