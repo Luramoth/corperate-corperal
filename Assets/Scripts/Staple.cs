@@ -19,6 +19,11 @@ using UnityEngine;
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
+/*
+TODO spawn particles on collision
+TODO make sound on collision
+*/
+
 public class Staple : MonoBehaviour
 {
 	// vars
