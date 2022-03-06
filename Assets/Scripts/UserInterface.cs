@@ -21,7 +21,7 @@ using UnityEngine.UI;
 /*
 TO/DO: optomise the script so it doesent need to reference  the Ammo count all the time slowing the game down - mabey not because it was the prints causing performance issues
 TO/DO: probably pick a better font
-TODO: Add a health system - done?
+TODO: Add a health system - done? yet to be tested
 */
 
 public class UserInterface : MonoBehaviour
