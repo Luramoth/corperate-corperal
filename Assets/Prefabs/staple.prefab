@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443830f1ee5bb6e9aa039f29535d9c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stapler: {fileID: 0}
+  stapler: {fileID: 8835477342547888879, guid: 5ae5722aa66cbf72b901507493845962, type: 3}
   hitParticle: {fileID: 4326036461101716241, guid: 3c766127e9ad4f0e69b49874fe9a2133, type: 3}
 --- !u!50 &8277365793489778527
 Rigidbody2D:
