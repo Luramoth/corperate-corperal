@@ -400,3 +400,8 @@ MonoBehaviour:
   stapler: {fileID: 8835477342547888879, guid: 5ae5722aa66cbf72b901507493845962, type: 3}
   stapleCountT: {fileID: 2150891619767001425}
   healthMeter: {fileID: 2150891619668135943}
+  health4: {fileID: 1234416467231346186, guid: 5a6c8a4ebfad80c75825b0648ec7fb0e, type: 3}
+  health3: {fileID: -7567099815998488273, guid: 5a6c8a4ebfad80c75825b0648ec7fb0e, type: 3}
+  health2: {fileID: -6477888187384447677, guid: 5a6c8a4ebfad80c75825b0648ec7fb0e, type: 3}
+  health1: {fileID: -7544109433279880010, guid: 5a6c8a4ebfad80c75825b0648ec7fb0e, type: 3}
+  health0: {fileID: -463336619152906598, guid: 5a6c8a4ebfad80c75825b0648ec7fb0e, type: 3}

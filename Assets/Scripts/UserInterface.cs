@@ -21,19 +21,30 @@ using UnityEngine.UI;
 /*
 TO/DO: optomise the script so it doesent need to reference  the Ammo count all the time slowing the game down - mabey not because it was the prints causing performance issues
 TO/DO: probably pick a better font
-TODO: Add a health system
+TODO: Add a health system - done?
 */
 
 public class UserInterface : MonoBehaviour
 {
+	// objects
 	public GameObject stapler;
+	public GameObject player;
 
-	// this is the staple count text
+
+	// Ui elements
 	public Text stapleCountT;
 	public Image healthMeter;
 
+	// health level graphics
+	public Sprite health4;
+	public Sprite health3;
+	public Sprite health2;
+	public Sprite health1;
+	public Sprite health0;
+
+
 	// Start is called before the first frame update
-	public void Start()
+	private void Start()
 	{
 		// this is the most retarded thing ive ever programmed but it works so im not gonna change it, if i could reference it with a variable i would
 		// basicly what it does is take the current staple count and how much the player currently has and updates the UI text to make sure the player knows this information
@@ -44,5 +55,24 @@ public class UserInterface : MonoBehaviour
 	public void UpdateStapleUi()
 	{
 		stapleCountT.text = "Staples: " + stapler.GetComponent<StaplerWeapon>().staples + "/" + stapler.GetComponent<StaplerWeapon>().holdingStaples;
+
+		switch (player.GetComponent<PlayerMovement>().health)
+		{
+			case 4:
+				healthMeter.GetComponent<Image>().sprite = health4;
+				break;
+			case 3:
+				healthMeter.GetComponent<Image>().sprite = health3;
+				break;
+			case 2:
+				healthMeter.GetComponent<Image>().sprite = health2;
+				break;
+			case 1:
+				healthMeter.GetComponent<Image>().sprite = health1;
+				break;
+			case 0:
+				healthMeter.GetComponent<Image>().sprite = health0;
+				break;
+		}
 	}
 }

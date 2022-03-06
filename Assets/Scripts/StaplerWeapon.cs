@@ -99,14 +99,14 @@ public class StaplerWeapon : MonoBehaviour
 	}
 
 	//starts before the first frame
-	public void Start()
+	private void Start()
 	{
 		SRender =  GetComponent<SpriteRenderer>();
 		audioSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
-	public void Update()
+	private void Update()
 	{
 		faceMouse();
 
@@ -128,7 +128,7 @@ public class StaplerWeapon : MonoBehaviour
 				// spawn a staple prefab
 				Instantiate(staple, transform.position, transform.rotation);
 				staples--;
-				//shootNoise.Play();
+
 				audioSource.PlayOneShot(shootSound);
 
 				// this tells the UI "hey the player fired the stapler, update the ammo count"

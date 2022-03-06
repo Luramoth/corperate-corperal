@@ -26,23 +26,25 @@ TODO: add crouching function so player can hide behind cover
 public class PlayerMovement : MonoBehaviour
 {
 
-	// id credit whoever made this origonally but the code was so god awful  that my changes hardly made it recognisable
+	// vars
 	private Rigidbody2D body;
 
 	private Vector3 inputVec;
 
-	int runSpeed = 10;
+	public int health = 4;
+	public int runSpeed = 10;
+
 	float maxVelocity = 1.5f;
 
 	// starts before the first frame
-	void Start ()
+	private void Start ()
 	{
 		// set body to the current RigidBody
 		body = GetComponent<Rigidbody2D>();
 	}
 
 	// starts on every frame
-	void Update ()
+	private void Update ()
 	{
 		//this takes the current movement vectors and puts them in a Vector3, mainly because Unity doesent have a Vector2.Normalise
 		inputVec = new Vector3(
