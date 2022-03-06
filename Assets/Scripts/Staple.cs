@@ -59,6 +59,7 @@ public class Staple : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		// spawn particles
 		Instantiate(hitParticle, transform.position, transform.rotation);
 	}
 }

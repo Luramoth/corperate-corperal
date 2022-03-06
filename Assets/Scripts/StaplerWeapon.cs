@@ -36,9 +36,14 @@ public class StaplerWeapon : MonoBehaviour
 	public GameObject staple;
 
 	private SpriteRenderer SRender;
+	private AudioSource audioSource;
 
 	//external objects
 	public GameObject UiHandler;
+
+	public AudioClip shootSound;
+	public AudioClip reloadSound;
+	public AudioClip failSound;
 
 	// reload the stapler
 	public void reload()
@@ -55,16 +60,21 @@ public class StaplerWeapon : MonoBehaviour
 			staples = maxStaples;
 
 			holdingStaples = holdingStaples - requiredSt;
+
+			audioSource.PlayOneShot(reloadSound);
 		}
 		else if (holdingStaples == 0)
 		{
 			// in this instance, you are out of staples and need to gather more
+			audioSource.PlayOneShot(failSound);
 		}
 		else
 		{
 			// if you dont have enough staples to fill up the whole clip then fill it up with what you got
 			staples = staples + holdingStaples;
 			holdingStaples = 0;
+
+			audioSource.PlayOneShot(reloadSound);
 		}
 	}
 
@@ -92,6 +102,7 @@ public class StaplerWeapon : MonoBehaviour
 	public void Start()
 	{
 		SRender =  GetComponent<SpriteRenderer>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -117,9 +128,15 @@ public class StaplerWeapon : MonoBehaviour
 				// spawn a staple prefab
 				Instantiate(staple, transform.position, transform.rotation);
 				staples--;
+				//shootNoise.Play();
+				audioSource.PlayOneShot(shootSound);
 
 				// this tells the UI "hey the player fired the stapler, update the ammo count"
 				UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+			}
+			else
+			{
+				audioSource.PlayOneShot(failSound);
 			}
 		}
 
@@ -130,6 +147,8 @@ public class StaplerWeapon : MonoBehaviour
 
 			// tell the UI "hey idiot, the player reloaded, update the ammo count"
 			UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+
+			// like this
 		}
 	}
 }
