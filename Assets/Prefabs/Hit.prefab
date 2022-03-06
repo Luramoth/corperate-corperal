@@ -660,7 +660,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 5
+    angle: 1
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.1
+      value: 0.05
       mode: 0
       spread: 0
       speed:
@@ -975,7 +975,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 30
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1041,29 +1041,29 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 1
-          inSlope: 33.22
-          outSlope: 33.22
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.008412836
+          outWeight: 0
         - serializedVersion: 3
-          time: 0.18776888
+          time: 0.018749446
           value: 0
-          inSlope: 0.038814392
-          outSlope: 0.038814392
+          inSlope: -0.0419493
+          outSlope: -0.0419493
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.20301268
+          outWeight: 0.22715782
         - serializedVersion: 3
           time: 1
           value: 0
           inSlope: 0
           outSlope: 0
-          tangentMode: 34
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -2100,14 +2100,14 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0.03245797
         - serializedVersion: 3
-          time: 0.14670987
-          value: 1
-          inSlope: -13.896545
-          outSlope: -13.896545
+          time: 0.074059986
+          value: 0.9661017
+          inSlope: -26.559767
+          outSlope: -26.559767
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 1
+          outWeight: 0.23797019
         - serializedVersion: 3
           time: 0.1938401
           value: 0.066376835

@@ -20,8 +20,8 @@ using UnityEngine;
     along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
 /*
-TODO spawn particles on collision
-TODO make sound on collision
+TO/DO spawn particles on collision
+TO/DO make sound on collision
 */
 
 public class Staple : MonoBehaviour
@@ -31,7 +31,7 @@ public class Staple : MonoBehaviour
 
 	// objects
 	public GameObject stapler;
-	Rigidbody2D body;
+	private Rigidbody2D body;
 
 	public GameObject hitParticle;
 
@@ -57,16 +57,8 @@ public class Staple : MonoBehaviour
 		Object.Destroy(gameObject);
 	}
 
-	//Detect collisions between the GameObjects with Colliders attached, for some reason its different from OnCollisionEnter() that is named in a way that implies its universal or normal and is also not mentioned
-	// "hey btw this is for 3d collisions, for 2D go to ..." all engines are retards
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		print("colision");
-		//Check for a match with the specific tag on any GameObject that collides with your GameObject
-		if (collision.gameObject.tag == "Object")
-		{
-			//If the GameObject has the same tag as specified, output this message in the console
-			print("object hit");
-		}
+		Instantiate(hitParticle, transform.position, transform.rotation);
 	}
 }
