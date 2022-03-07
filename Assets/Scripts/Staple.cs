@@ -61,5 +61,7 @@ public class Staple : MonoBehaviour
 	{
 		// spawn particles
 		Instantiate(hitParticle, transform.position, transform.rotation);
+
+		Object.Destroy(gameObject);
 	}
 }
