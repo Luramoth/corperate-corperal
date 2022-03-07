@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stapler: {fileID: 8835477342547888879, guid: 5ae5722aa66cbf72b901507493845962, type: 3}
+  player: {fileID: 308545619601915761, guid: ecc821ed0d21f523e803b2a92aba258f, type: 3}
   stapleCountT: {fileID: 2150891619767001425}
   healthMeter: {fileID: 2150891619668135943}
   health4: {fileID: 1234416467231346186, guid: 5a6c8a4ebfad80c75825b0648ec7fb0e, type: 3}
