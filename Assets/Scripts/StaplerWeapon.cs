@@ -104,6 +104,8 @@ public class StaplerWeapon : MonoBehaviour
 	{
 		SRender =  GetComponent<SpriteRenderer>();
 		audioSource = GetComponent<AudioSource>();
+
+		UiHandler.GetComponent<UserInterface>().UpdateUi(staples, holdingStaples);
 	}
 
 	// Update is called once per frame
@@ -137,7 +139,7 @@ public class StaplerWeapon : MonoBehaviour
 					audioSource.PlayOneShot(shootSound);
 
 					// this tells the UI "hey the player fired the stapler, update the ammo count"
-					UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+					UiHandler.GetComponent<UserInterface>().UpdateUi(staples, holdingStaples);
 				}
 				else
 				{
@@ -149,7 +151,7 @@ public class StaplerWeapon : MonoBehaviour
 					audioSource.PlayOneShot(shootSound);
 
 					// this tells the UI "hey the player fired the stapler, update the ammo count"
-					UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+					UiHandler.GetComponent<UserInterface>().UpdateUi(staples, holdingStaples);
 				}
 			}
 			else
@@ -165,7 +167,7 @@ public class StaplerWeapon : MonoBehaviour
 			reload();
 
 			// tell the UI "hey idiot, the player reloaded, update the ammo count"
-			UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+			UiHandler.GetComponent<UserInterface>().UpdateUi(staples, holdingStaples);
 
 			// like this
 		}
