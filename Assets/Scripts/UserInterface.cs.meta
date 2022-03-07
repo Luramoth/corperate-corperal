@@ -3,7 +3,15 @@ guid: ca4ed195b498b10a6a3f468c6c54f33d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {fileID: 308545619601915761, guid: ecc821ed0d21f523e803b2a92aba258f, type: 3}
+  - stapleCountT: {instanceID: 0}
+  - healthMeter: {instanceID: 0}
+  - health4: {instanceID: 0}
+  - health3: {instanceID: 0}
+  - health2: {instanceID: 0}
+  - health1: {instanceID: 0}
+  - health0: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

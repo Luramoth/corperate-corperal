@@ -3,7 +3,14 @@ guid: 95b3faaaaaed3524289dc1dffdf3b48a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - staple: {fileID: 973232888399811326, guid: 1d98fb5f818b91c1d8e29388278f30a9, type: 3}
+  - cStaple: {fileID: 973232888399811326, guid: a3c956b38707313e98e5ddb131acdfb3, type: 3}
+  - UiHandler: {instanceID: 0}
+  - shootSound: {fileID: 8300000, guid: 36b50c4afa473b0f0a71e8c401e20b18, type: 3}
+  - reloadSound: {fileID: 8300000, guid: 45d146b4978aab75ab86ac5b3aff4744, type: 3}
+  - failSound: {fileID: 8300000, guid: 874ad771c16eeded5ba199cc57dfbcfa, type: 3}
+  - pickupSound: {fileID: 8300000, guid: b1d116b9194233953a69b6ccec085edb, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

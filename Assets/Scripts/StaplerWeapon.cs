@@ -29,8 +29,8 @@ public class StaplerWeapon : MonoBehaviour
 	public int staples = 16;
 	public int maxStaples = 16;
 
-	public int holdingStaples = 50;
-	public int maxHoldingStaples = 50;
+	public int holdingStaples = 64;
+	public int maxHoldingStaples = 64;
 
 	//Objects
 	public GameObject staple;
@@ -45,7 +45,9 @@ public class StaplerWeapon : MonoBehaviour
 	public AudioClip shootSound;
 	public AudioClip reloadSound;
 	public AudioClip failSound;
+	public AudioClip pickupSound;
 
+	/////////////////////////////////////////////////////////////////////////////////////////
 	// reload the stapler
 	public void reload()
 	{
@@ -79,6 +81,34 @@ public class StaplerWeapon : MonoBehaviour
 		}
 	}
 
+	/////
+
+	public int collectStaples(int amount)
+	{
+		int requiredSt;
+		int extraSt;
+
+		requiredSt = maxHoldingStaples - holdingStaples;
+
+		holdingStaples = holdingStaples + requiredSt;
+
+		extraSt = amount - requiredSt;
+
+		if (extraSt <= 0)
+		{
+			return 0;
+		}
+		else
+		{
+			return extraSt;
+		}
+
+		UiHandler.GetComponent<UserInterface>().UpdateUi(staples,holdingStaples);
+		audioSource.PlayOneShot(pickupSound);
+	}
+
+	/////
+
 	// make the staple gun face the cursor
 	private void faceMouse()
 	{
@@ -99,6 +129,8 @@ public class StaplerWeapon : MonoBehaviour
 		transform.up = direction;
 	}
 
+	/////////////////////////////////////////////////////////////////////////////////////////
+
 	//starts before the first frame
 	private void Start()
 	{
@@ -107,6 +139,8 @@ public class StaplerWeapon : MonoBehaviour
 
 		UiHandler.GetComponent<UserInterface>().UpdateUi(staples, holdingStaples);
 	}
+
+	/////
 
 	// Update is called once per frame
 	private void Update()
@@ -160,6 +194,8 @@ public class StaplerWeapon : MonoBehaviour
 				audioSource.PlayOneShot(failSound);
 			}
 		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////
 
 		// reload staples
 		if (Input.GetButtonDown("Reload"))

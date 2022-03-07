@@ -107,6 +107,7 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 36b50c4afa473b0f0a71e8c401e20b18, type: 3}
   reloadSound: {fileID: 8300000, guid: 45d146b4978aab75ab86ac5b3aff4744, type: 3}
   failSound: {fileID: 8300000, guid: 874ad771c16eeded5ba199cc57dfbcfa, type: 3}
+  pickupSound: {fileID: 8300000, guid: b1d116b9194233953a69b6ccec085edb, type: 3}
 --- !u!82 &6881007992956397690
 AudioSource:
   m_ObjectHideFlags: 0

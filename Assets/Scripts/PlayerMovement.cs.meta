@@ -3,7 +3,9 @@ guid: 68c615ea124f90dc89b839d43194d7f9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - standSp: {fileID: -2311659948842064771, guid: f98acaec9d575e58bb4773d450469559, type: 3}
+  - crouchSp: {fileID: 7364682651488144517, guid: f98acaec9d575e58bb4773d450469559, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
