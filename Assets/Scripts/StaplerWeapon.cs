@@ -94,6 +94,10 @@ public class StaplerWeapon : MonoBehaviour
 
 		extraSt = amount - requiredSt;
 
+
+		UiHandler.GetComponent<UserInterface>().UpdateUi(staples,holdingStaples);
+		audioSource.PlayOneShot(pickupSound);
+
 		if (extraSt <= 0)
 		{
 			return 0;
@@ -102,9 +106,6 @@ public class StaplerWeapon : MonoBehaviour
 		{
 			return extraSt;
 		}
-
-		UiHandler.GetComponent<UserInterface>().UpdateUi(staples,holdingStaples);
-		audioSource.PlayOneShot(pickupSound);
 	}
 
 	/////
