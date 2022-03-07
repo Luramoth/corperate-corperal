@@ -22,6 +22,7 @@ using UnityEngine.UI;
 TO/DO: optomise the script so it doesent need to reference  the Ammo count all the time slowing the game down - mabey not because it was the prints causing performance issues
 TO/DO: probably pick a better font
 TODO: Add a health system - done? yet to be tested
+TODO: fix bug where staple count isent updated
 */
 
 public class UserInterface : MonoBehaviour
@@ -56,6 +57,7 @@ public class UserInterface : MonoBehaviour
 	{
 		stapleCountT.text = "Staples: " + stapler.GetComponent<StaplerWeapon>().staples + "/" + stapler.GetComponent<StaplerWeapon>().holdingStaples;
 
+		// change health meter depending on how much health the player has
 		switch (player.GetComponent<PlayerMovement>().health)
 		{
 			case 4:

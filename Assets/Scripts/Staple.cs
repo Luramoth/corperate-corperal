@@ -31,9 +31,9 @@ public class Staple : MonoBehaviour
 
 	// objects
 	public GameObject stapler;
-	private Rigidbody2D body;
-
 	public GameObject hitParticle;
+
+	private Rigidbody2D body;
 
 	private void Start()
 	{

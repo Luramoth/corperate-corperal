@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c615ea124f90dc89b839d43194d7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 4
+  runSpeed: 10
+  standSp: {fileID: -2311659948842064771, guid: f98acaec9d575e58bb4773d450469559, type: 3}
+  crouchSp: {fileID: 7364682651488144517, guid: f98acaec9d575e58bb4773d450469559, type: 3}
 --- !u!50 &308545619601915725
 Rigidbody2D:
   serializedVersion: 4

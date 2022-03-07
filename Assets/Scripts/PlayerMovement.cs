@@ -20,27 +20,35 @@ using UnityEngine;
     along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
 /*
-TODO: add crouching function so player can hide behind cover
+TO/DO: add crouching function so player can hide behind cover
 */
 
 public class PlayerMovement : MonoBehaviour
 {
 
 	// vars
-	private Rigidbody2D body;
-
 	private Vector3 inputVec;
 
 	public int health = 4;
 	public int runSpeed = 10;
 
-	float maxVelocity = 1.5f;
+	private float maxVelocity = 1.5f;
+
+	public bool isCrouching = false;
+
+	//objects
+	private Rigidbody2D body;
+	private SpriteRenderer spriteRenderer;
+
+	public Sprite standSp;
+	public Sprite crouchSp;
 
 	// starts before the first frame
 	private void Start ()
 	{
 		// set body to the current RigidBody
 		body = GetComponent<Rigidbody2D>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	// starts on every frame
@@ -54,6 +62,25 @@ public class PlayerMovement : MonoBehaviour
 		);
 		// this takes the input and normalises it so the player doesent go faster when moving diagonally
 		inputVec = Vector3.Normalize(inputVec);
+
+		// change the player's crouching state depending on weatehr or not they are pressing the ctrl button
+		// in the crouching state the player will have different collisions and it will mainly affect bullets. making thim able to hit obsticals
+		if (Input.GetButton("crouch"))
+		{
+			spriteRenderer.sprite = crouchSp;
+
+			gameObject.layer = 8;
+
+			isCrouching = true;
+		}
+		else
+		{
+			spriteRenderer.sprite = standSp;
+
+			gameObject.layer = 0;
+
+			isCrouching = false;
+		}
 	}
 
 	// a framerate independent MonoBehavior method

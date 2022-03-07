@@ -34,6 +34,7 @@ public class StaplerWeapon : MonoBehaviour
 
 	//Objects
 	public GameObject staple;
+	public GameObject cStaple;
 
 	private SpriteRenderer SRender;
 	private AudioSource audioSource;
@@ -125,17 +126,35 @@ public class StaplerWeapon : MonoBehaviour
 		{
 			if (staples > 0)
 			{
-				// spawn a staple prefab
-				Instantiate(staple, transform.position, transform.rotation);
-				staples--;
+				// detect if the player is pressing the crouch button in order to shoot a different bullet that will collide in different ways
+				// namely when the player crouches, normal bullets dont collide and their own bullets collide with obsticals
+				if (Input.GetButton("crouch"))
+				{
+					Instantiate(cStaple, transform.position, transform.rotation);
+					staples--;
 
-				audioSource.PlayOneShot(shootSound);
+					// play sound if shot is fired
+					audioSource.PlayOneShot(shootSound);
 
-				// this tells the UI "hey the player fired the stapler, update the ammo count"
-				UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+					// this tells the UI "hey the player fired the stapler, update the ammo count"
+					UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+				}
+				else
+				{
+					// spawn a staple prefab
+					Instantiate(staple, transform.position, transform.rotation);
+					staples--;
+
+					// play sound if shot is fired
+					audioSource.PlayOneShot(shootSound);
+
+					// this tells the UI "hey the player fired the stapler, update the ammo count"
+					UiHandler.GetComponent<UserInterface>().UpdateStapleUi();
+				}
 			}
 			else
 			{
+				// if out of bullet, play a fail sound
 				audioSource.PlayOneShot(failSound);
 			}
 		}
