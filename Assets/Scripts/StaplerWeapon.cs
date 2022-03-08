@@ -83,21 +83,33 @@ public class StaplerWeapon : MonoBehaviour
 
 	/////
 
+	// this is a function that will collect ammo from a pack of staples, if you collect more then you need then you leave behind what you dont need
 	public int collectStaples(int amount)
 	{
 		int requiredSt;
 		int extraSt;
 
+		// find out the amount of staples is required to fill up the max amount you can hold
 		requiredSt = maxHoldingStaples - holdingStaples;
 
+		// dont give out more staples then you actually have you dunce (theres probably a more mathamatical way to do this but i just dont have the time for that its 12:33)
+		if (requiredSt > amount)
+		{
+			requiredSt = 16;
+		}
+
+		// then fill up the holding staples
 		holdingStaples = holdingStaples + requiredSt;
 
+		// take all the extra staples (if any) and figure them out
 		extraSt = amount - requiredSt;
 
 
+		// update the UI and make a sound
 		UiHandler.GetComponent<UserInterface>().UpdateUi(staples,holdingStaples);
 		audioSource.PlayOneShot(pickupSound);
 
+		//check if there are any extra staples, if there arent then delete the ammo pack, if there are then keep it there but with less staples
 		if (extraSt <= 0)
 		{
 			return 0;

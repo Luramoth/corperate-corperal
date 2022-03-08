@@ -29,10 +29,13 @@ public class StapleBundle : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
+		// check if the player is collecting the pack of staples or not
 		if (collider.tag == "Player")
 		{
+			// run the fuinction in order to actually collect the staples on the players end and see if there are any extras
 			int extraSt = stapler.GetComponent<StaplerWeapon>().collectStaples(ammoAmount);
 
+			// if there are extras then keep the staple pack but lower the amount it has, else if there are no extras, then delete the ammo pack
 			if (extraSt > 0 )
 			{
 				ammoAmount = extraSt;
